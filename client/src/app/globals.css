@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #df3031;
+  --color-secondary: #eca459;
+  
+  --color-background-light: #FFFFFF;
+  --color-background-dark: #1a1a1a;
+  
+  --color-text-light: #333333;
+  --color-text-dark: #EFEFEF;
+  
+  --color-secondary-text-light: #666666;
+  --color-secondary-text-dark: #999999;
+  
+  --color-border-light: #E0E0E0;
+  --color-border-dark: #333333;
+  
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #262626;
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background-color: var(--color-background-light);
+  color: var(--color-text-light);
+  font-family: var(--font-display);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined'; 
+  
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
