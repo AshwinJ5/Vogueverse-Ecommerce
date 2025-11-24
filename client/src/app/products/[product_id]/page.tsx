@@ -109,8 +109,8 @@ const ProductDetail = () => {
                             </div>
 
                             <p className="text-3xl font-bold mt-4 text-primary">
-                                $89.99
-                                <span className="text-xl font-normal text-gray-400 line-through ml-2">$120.00</span>
+                                ₹ 89.99
+                                <span className="text-xl font-normal text-gray-400 line-through ml-2">₹ 120.00</span>
                             </p>
                         </div>
 

@@ -46,9 +46,10 @@ const Navbar = () => {
     };
 
     const navLinks = [
+        { name: "Wishlist", href: "/wishlist" },
+        { name: "Catalogues", href: "/categories" },
         { name: "Products", href: "/products" },
         { name: "Orders", href: "/orders" },
-        { name: "Catalogues", href: "/categories" },
     ];
 
     const dummyResults = [
