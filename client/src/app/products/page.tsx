@@ -5,13 +5,14 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { FilterContent } from "../components/FilterContent";
 
 const products = [
     {
         id: 1,
         name: "Classic Red Dress",
         brand: "Brand A",
-        price: "$79.99",
+        price: "79.99",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAm193IgFq5FdNqo40DCfB2chZatu2FiDTVi9Rgn9dWcC6aza6vDgEUOLLAg5RKRW0nM0uZWuzi7cWQUmC7o8SMfGziXi0nHeN6JRvMi93uOyhoEnz-tTogtghHVQgAzHaFSJn74dNgHenz5IeHo6MzZgxbaNmrlx9Y0E0eHd-3plHB4lGWu0VENnC6iDL1KY3xc_jDSzm9SmXs4uw9-v3SmNk8VwgmiwFM6kG6QEdsu-lmBdnJhvt7RRVG0M-HE3s36q2EPG15od86",
         alt: "Red Dress",
     },
@@ -19,7 +20,7 @@ const products = [
         id: 2,
         name: "Modern Fit Jeans",
         brand: "Brand B",
-        price: "$89.00",
+        price: "89.00",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD0AsHF6J8RQitMwy2ccATq5sxpfGAUT1INGeRr4M4HX4VPQwg2hbnTY9-U0RMJNNn0Mq9QEdOn8sVCforY6S5zjZeEFAB9RpbwgMoBgQXA9ZXveIRPpyZ7hFNsqf_rF-FLgHKECfbbJp4G5TbV8yYX9mW6jXUlaF1lelCCXv_qq1oxvsH5EfywYTn3c1igWYjlwIjm1vjwxNdVa1BEXXSl-ct6bExMkX6lF4Wb-FeTFVuQLrFSyz_xGXURPxBvG-9YMgZH6_gmb42o",
         alt: "Jeans",
     },
@@ -27,7 +28,7 @@ const products = [
         id: 3,
         name: "Striped Cotton Tee",
         brand: "Brand C",
-        price: "$29.50",
+        price: "29.50",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBq4qxRWeqnZ8bYR-gloxV7kG6RN8o0ZJul_FZe0AaA4W6HWVPEnBQyjrJB-_n780RJ_E7IECA0HN7PSHorXNeM_oU5-XPL5rE6Kp85Gl6TWrFwbQ521ncuvAmN83tRaL8bymdeouvypP4dF7BIgto9TFXBwO8rSm82Hahk1y36rKinClwI0XQdFz866KrACOu-HXoMTIAgpXgDxV6YTbzpJPqb8-qsIVkEt1cdmOsxzvxHTNAgODcfqU8nGnnh7oIo73elMJWUqSL9",
         alt: "Tee",
     },
@@ -35,7 +36,7 @@ const products = [
         id: 4,
         name: "Leather Ankle Boots",
         brand: "Brand A",
-        price: "$149.99",
+        price: "149.99",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAUSfAQV_c_UV9aO44yvUSbSzPsA1ySE8WFcvHAjxImkLH-Eh5TTjAmml1bNDmWuFfgk5WxNMsi-sMfP6Gm2dW54mt5ZoYkevp3RChvp3pY6tFzujreO6NBvnxuEwT1RDgOo1BBpm2IVzNOhX0FuHzQ04cHWMa_l73gUtX9y2sJK308-5hBNsnR1xsXwYHz7cj7OUFT3uZj1x5hroZsHVFE2dbXtswsqNGbMTIv22aTxV906XipFcxoyt_GIN0AH7AGzXhVb81rK041",
         alt: "Boots",
     },
@@ -43,7 +44,7 @@ const products = [
         id: 5,
         name: "V-Neck Cashmere Sweater",
         brand: "Brand B",
-        price: "$120.00",
+        price: "120.00",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBlKw8cV_zY1PfGSa349CJLQOzoxEw-zogiwaTlMBXTTtAj3sxc6H05yZWsClTlrXWC7MQMdn5huogXrcDqZr_Cy9fwrVV9CYIvMqQGJBwMhvuRdpgXfT_s5BDF6xdH-5gQCOiiPbvvobDnq102H7Y4kizIPntxIpCvgo_ENz6ghe8GF7krem4NVJsy5Jq7Re3np1rxQJp1gfWs2c-6tYR-YZhtye_8WcHVGnLHaOQ6eZJydY4fyzhQxzYb-5MXpLswpZYMy6mw9i3g",
         alt: "Sweater",
     },
@@ -51,7 +52,7 @@ const products = [
         id: 6,
         name: "High-Waisted Shorts",
         brand: "Brand C",
-        price: "$45.00",
+        price: "45.00",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDZkkx7Ne1YNaucYAuARj2IKK4x2cv2DRmfePTC69ZgF3x06sTFidc5iuroiEx5L2NH4_xr4tT1SOsPSuhsi7Njlm1q75v8l6MTqYyU2CpSSK4-corm3wx4GxE9NaxEdt0mx8fIgk2Gn-kJCYK9LM_Dt4hxglLxIZ1spSBKPp4cavN6qXlX0o26J_-KZ83wTuFLiNXZh56OJ0MW3bMC_ge6HqbpC88Ygw1JmmVaw3WYddMS_E8RyWIWFyzySdVw7mks-2XxBh9RiuPF",
         alt: "Shorts",
     },
@@ -59,7 +60,7 @@ const products = [
         id: 7,
         name: "Floral Summer Skirt",
         brand: "Brand A",
-        price: "$55.00",
+        price: "55.00",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAyERHe25QXGbFRkIivJVd5g8Dq9a2i9HUqYqr0_ram0FYOpOfi8q_fY7mIrNkc_e22vHoSqd7ycbbrBu7gVqskGvZM9Myq-e70hQkNCUYxz20B26g2LG8wbXU_uMIEsxQJHJNIl5vawzJYtwH1GbU50RVsqv7xZ7b4Y86fqjS7m88wo1wR93GiHiX6X0S8C0DxAhFTYiTMQ83FyShAaTGRIF_3Th0qsNXLv4QFifSFs1kNkgWE3VeQEKTTEyVUEs_629WKhclYwXiu",
         alt: "Skirt",
     },
@@ -67,78 +68,11 @@ const products = [
         id: 8,
         name: "Denim Jacket",
         brand: "Brand B",
-        price: "$99.99",
+        price: "99.99",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzzb0rBDlkNsQ_ZSyVsbPzdjmm40_Z9A8pDLQQSVAmKBa0suXgjWMd1JoVhkdgPzpv1QpbC2atv7vIKlCqWAU6WaXRMD_vUEVqyhVFpg4yaAX5vIoF6qiSUiOaXDxHWx0wl9ao5BwRaXwBKxt3ixo5Fu8Qgx7KmGVljtI5c_gJISvnAGLhP3QuLxN1TzxQO9FzDWEeyg9pI8SlLlGGgPU05Sbl9np1RUDQB8oRtxKmJSSxf6twR2F8HfwjCQQpsJjgRePJySl1xROn",
         alt: "Jacket",
     },
 ];
-
-const FilterContent = () => (
-    <div className="space-y-6 pb-24 lg:pb-0">
-        <h3 className="text-xl font-bold mb-4 text-text-light hidden lg:block">Filters</h3>
-        <div>
-            <h4 className="font-bold mb-3 text-text-light">Category</h4>
-            <ul className="space-y-2 text-sm text-secondary-text-light">
-                {["T-Shirts", "Jeans", "Dresses", "Jackets", "Shoes"].map((cat, i) => (
-                    <li key={i}>
-                        <a href="#" className="hover:text-primary transition-colors">
-                            {cat}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-        <div>
-            <h4 className="font-bold mb-3 text-text-light">Brand</h4>
-            <div className="space-y-2">
-                {["Brand A", "Brand B", "Brand C", "Brand D"].map((brand, i) => (
-                    <label key={i} className="flex items-center space-x-2 text-sm text-text-light cursor-pointer">
-                        <input type="checkbox" className="rounded text-primary focus:ring-primary/50 border-border-dark" />
-                        <span>{brand}</span>
-                    </label>
-                ))}
-            </div>
-        </div>
-        <div>
-            <h4 className="font-bold mb-3 text-text-light">Price Range</h4>
-            <div className="relative pt-1">
-                <input
-                    type="range"
-                    min="0"
-                    max="500"
-                    defaultValue="75"
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
-                />
-                <div className="flex justify-between text-xs text-secondary-text-light mt-2">
-                    <span>$0</span>
-                    <span>$500+</span>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h4 className="font-bold mb-3 text-text-light">Size</h4>
-            <div className="flex flex-wrap gap-2">
-                {["S", "M", "L", "XL"].map((size, i) => (
-                    <button
-                        key={i}
-                        className="flex items-center justify-center border border-border-light h-8 w-10 rounded-lg text-sm text-text-light hover:border-primary hover:text-primary transition-colors bg-white"
-                    >
-                        {size}
-                    </button>
-                ))}
-            </div>
-        </div>
-        <div className="flex flex-col gap-2 pt-4">
-            <button className="w-full text-white bg-secondary hover:bg-secondary/90 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors">
-                Apply Filters
-            </button>
-            <button className="w-full text-text-light bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors">
-                Clear All
-            </button>
-        </div>
-    </div>
-);
 
 const AllProducts = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -217,38 +151,46 @@ const AllProducts = () => {
                     <div className="col-span-1 lg:col-span-3 lg:pl-8">
                         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
                             {products.map((product) => (
-                                <Link
-                                    href={"/products/001"}
-                                    key={product.id}
-                                    className="flex flex-col group relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition-all border border-border-light"
-                                >
-                                    <div className="relative w-full aspect-3/4 bg-gray-100">
-                                        <Image
-                                            fill
-                                            src={product.image}
-                                            alt={product.alt}
-                                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                                            <Link
-                                                href={"/cart"}
-                                                className="bg-white text-text-light rounded-full size-10 flex items-center justify-center hover:bg-primary hover:text-white transition-all transform hover:scale-110 shadow-lg"
-                                            >
-                                                <span className="material-symbols-outlined text-xl">shopping_cart</span>
+                                <Link href={`/products/${product.id || "001"}`} key={product.id} className="flex flex-col gap-3 group text-center group">
+                                    <div className="relative w-full aspect-3/4 overflow-hidden rounded-lg bg-gray-100">
+                                            <Image
+                                                fill
+                                                src={product.image}
+                                                alt={product.alt || product.name}
+                                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+
+                                        {/* Wishlist Button (Top Right) - Share button removed */}
+                                        <div className="absolute top-2 right-2 md:top-3 md:right-3 flex flex-col gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 z-10">
+                                            <Link href="/wishlist">
+                                                <button className="h-8 w-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-text-light">
+                                                    <span className="material-symbols-outlined text-lg">favorite</span>
+                                                </button>
                                             </Link>
-                                            <Link
-                                                href={"/wishlist"}
-                                                className="bg-white text-text-light rounded-full size-10 flex items-center justify-center hover:bg-primary hover:text-white transition-all transform hover:scale-110 shadow-lg"
-                                            >
-                                                <span className="material-symbols-outlined text-xl">favorite</span>
+                                        </div>
+
+                                        {/* Add to Cart Button (Bottom Overlay) */}
+                                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[90%] opacity-100 md:opacity-0 md:translate-y-2.5 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 z-10">
+                                            <Link href="/cart" className="w-full">
+                                                <button className="w-full h-9 md:h-11 bg-primary text-white text-xs md:text-sm font-bold tracking-wider shadow-lg rounded hover:bg-opacity-90">
+                                                    ADD TO CART
+                                                </button>
                                             </Link>
                                         </div>
                                     </div>
-                                    <div className="p-3">
-                                        <h3 className="text-base font-semibold text-text-light truncate">{product.name}</h3>
-                                        <p className="text-sm text-secondary-text-light">{product.brand}</p>
-                                        <p className="text-base font-bold text-primary mt-1">{product.price}</p>
+
+                                    {/* Product Details */}
+                                    <div className="mt-1 md:mt-2">
+                                        <Link href={`/products/${product.id || "001"}`}>
+                                            <p className="text-sm md:text-base font-medium leading-normal truncate text-text-light group-hover:text-primary transition-colors">
+                                                {product.name}
+                                            </p>
+                                        </Link>
+                                        <p className="text-secondary-text-light text-xs font-medium uppercase">
+                                            {product.brand}
+                                        </p>
+                                        <p className="text-text-light text-sm font-bold mt-1">₹ {product.price}</p>
                                     </div>
                                 </Link>
                             ))}

@@ -61,7 +61,6 @@ const ShoppingCart = () => {
 
             <main className="grow">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-
                     {/* Page Heading */}
                     <div className="flex flex-wrap justify-between gap-3 mb-8">
                         <h1 className="text-3xl md:text-4xl font-black tracking-tighter">My Bag</h1>
@@ -102,7 +101,7 @@ const ShoppingCart = () => {
                                                         Size: {item.size}, Color: {item.color}
                                                     </p>
                                                     <p className="text-base font-semibold leading-normal pt-1">
-                                                        ${item.price.toFixed(2)}
+                                                        ₹ {item.price.toFixed(2)}
                                                     </p>
                                                 </div>
                                             </div>
@@ -133,7 +132,7 @@ const ShoppingCart = () => {
                                                 </div>
                                                 <button
                                                     onClick={() => removeItem(item.id)}
-                                                    className="text-gray-500 hover:text-primary transition-colors"
+                                                    className="text-gray-500 hover:text-primary cursor-pointer transition-colors"
                                                 >
                                                     <span className="material-symbols-outlined text-xl">delete</span>
                                                 </button>
@@ -144,10 +143,10 @@ const ShoppingCart = () => {
 
                                 <Link
                                     href="/categories"
-                                    className="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+                                    className="group inline-flex items-center gap-2 text-primary font-bold "
                                 >
                                     <span className="material-symbols-outlined">arrow_back</span>
-                                    Continue Shopping
+                                    <span className="group-hover:underline">Continue Shopping</span>
                                 </Link>
                             </div>
 
@@ -163,7 +162,7 @@ const ShoppingCart = () => {
                                         </label>
                                         <div className="flex gap-2">
                                             <input
-                                                className="grow rounded-lg border-border-light bg-background-light focus:border-secondary focus:ring-secondary text-sm px-3 py-2"
+                                                className="grow rounded-lg border border-gray-300 bg-background-light focus:border-secondary focus:ring-secondary text-sm px-3 py-2"
                                                 id="coupon-code"
                                                 placeholder="Enter code"
                                                 type="text"
@@ -200,10 +199,13 @@ const ShoppingCart = () => {
 
                                     {/* CTA */}
                                     <div className="pt-2">
-                                        <button className="w-full flex items-center justify-center gap-2 rounded-lg h-12 px-6 bg-primary text-white text-base font-bold hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                                        <Link
+                                            href={"#"}
+                                            className="w-full flex items-center justify-center gap-2 rounded-lg h-12 px-6 bg-primary text-white text-base font-bold hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
+                                        >
                                             <span>Secure Checkout</span>
                                             <span className="material-symbols-outlined text-[20px]">lock</span>
-                                        </button>
+                                        </Link>
                                         <p className="text-xs text-gray-500 mt-3 text-center">
                                             Taxes and shipping calculated at checkout
                                         </p>
@@ -213,7 +215,7 @@ const ShoppingCart = () => {
                         </div>
                     ) : (
                         // Empty Cart State
-                       <EmptyCart/>
+                        <EmptyCart />
                     )}
                 </div>
             </main>
