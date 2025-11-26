@@ -151,22 +151,27 @@ const AllProducts = () => {
                     <div className="col-span-1 lg:col-span-3 lg:pl-8">
                         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
                             {products.map((product) => (
-                                <Link href={`/products/${product.id || "001"}`} key={product.id} className="flex flex-col gap-3 group text-center group">
+                                <Link
+                                    href={`/products/${product.id || "001"}`}
+                                    key={product.id}
+                                    className="flex flex-col gap-3 group text-center group"
+                                >
                                     <div className="relative w-full aspect-3/4 overflow-hidden rounded-lg bg-gray-100">
-                                            <Image
-                                                fill
-                                                src={product.image}
-                                                alt={product.alt || product.name}
-                                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
+                                        <Image
+                                            fill
+                                            src={product.image}
+                                            alt={product.alt || product.name}
+                                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
 
                                         {/* Wishlist Button (Top Right) - Share button removed */}
                                         <div className="absolute top-2 right-2 md:top-3 md:right-3 flex flex-col gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 z-10">
-                                            <Link href="/wishlist">
-                                                <button className="h-8 w-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-text-light">
-                                                    <span className="material-symbols-outlined text-lg">favorite</span>
-                                                </button>
+                                            <Link
+                                                href="/wishlist"
+                                                className="h-8 w-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-text-light"
+                                            >
+                                                <span className="material-symbols-outlined text-lg">favorite</span>
                                             </Link>
                                         </div>
 
