@@ -81,10 +81,10 @@ const Categories = () => {
                             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent -z-10 pointer-events-none"></div>
 
                             {/* Orange Hover Overlay Effect */}
-                            <div className="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                            <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:${index % 2 === 0 ? ' bg-secondary/30' : ' bg-primary/30'}`}></div>
 
                             <div className="absolute bottom-0 left-0 p-4 md:p-6 z-10">
-                                <h3 className="font-bold text-lg md:text-2xl text-white group-hover:text-primary">
+                                <h3 className={`font-bold text-lg md:text-2xl text-white group-hover:${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>
                                     {item.name}
                                 </h3>
                             </div>

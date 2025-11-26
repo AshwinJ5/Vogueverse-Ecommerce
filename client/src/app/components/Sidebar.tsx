@@ -11,6 +11,8 @@ const Sidebar = () => {
     const navItems = [
         { href: "/admin/dashboard", label: "Dashboard", icon: "dashboard" },
         { href: "/admin/products", label: "Products", icon: "inventory_2" },
+        { href: "/admin/categories", label: "Categories", icon: "view_quilt" },
+        { href: "/admin/brands", label: "Brands", icon: "branding_watermark" },
         { href: "/admin/orders", label: "Orders", icon: "receipt_long" },
         { href: "/admin/users", label: "Users", icon: "group" },
         { href: "/admin/coupons", label: "Coupons", icon: "sell" },
@@ -20,12 +22,12 @@ const Sidebar = () => {
     return (
         <aside className="flex h-screen w-64 flex-col justify-between bg-card-light p-4 border-r border-border-light sticky top-0">
             <div className="flex flex-col gap-8">
-                <div className="flex items-center gap-3 px-2">
+                <Link href={'/admin/dashboard'} className="flex items-center gap-3 px-2">
                     <Image width={30} height={30} alt="logo" src={"/logo.svg"} />
                     <h1 className="text-text-light text-xl font-bold leading-normal">
                         VogueVerse
                     </h1>
-                </div>
+                </Link>
                 
                 <nav className="flex flex-col gap-2">
                     {navItems.map((item) => {

@@ -10,31 +10,31 @@ const Dashboard = () => {
         {
             name: "Olivia Martin",
             email: "olivia.martin@email.com",
-            amount: "+$1,999.00",
+            amount: "1,999.00",
             avatar: "/image001.png",
         },
         {
             name: "Jackson Lee",
             email: "jackson.lee@email.com",
-            amount: "+$39.00",
+            amount: "39.00",
             avatar: "/image002.png",
         },
         {
             name: "Isabella Nguyen",
             email: "isabella.nguyen@email.com",
-            amount: "+$299.00",
+            amount: "299.00",
             avatar: "/image003.png",
         },
         {
             name: "William Kim",
             email: "will@email.com",
-            amount: "+$99.00",
+            amount: "99.00",
             avatar: "/image004.png",
         },
         {
             name: "Sofia Davis",
             email: "sofia.davis@email.com",
-            amount: "+$39.00",
+            amount: "39.00",
             avatar: "/image005.png",
         },
     ];
@@ -209,7 +209,7 @@ const Dashboard = () => {
                                                     </p>
                                                     <p className="text-sm text-text-subtle-light">{order.email}</p>
                                                 </div>
-                                                <div className="ml-auto font-medium text-text-light">{order.amount}</div>
+                                                <div className="ml-auto font-medium text-text-light">₹ {order.amount}</div>
                                             </Link>
                                         ))}
                                     </div>

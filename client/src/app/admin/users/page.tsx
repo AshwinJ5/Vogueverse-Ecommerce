@@ -58,10 +58,10 @@ const AdminUsersPage = () => {
                             <h1 className="text-3xl font-bold text-text-primary">User Management</h1>
                             <p className="text-gray-500">Manage all registered users in the system.</p>
                         </div>
-                        <button className="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 text-white text-sm font-bold shadow-sm hover:bg-primary/90 transition-colors">
+                        <Link href={'/admin/users/add'} className="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-4 text-white text-sm font-bold shadow-sm hover:bg-primary/90 transition-colors">
                             <span className="material-symbols-outlined text-xl">add</span>
                             <span className="truncate">Add New User</span>
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Toolbar and Filters */}

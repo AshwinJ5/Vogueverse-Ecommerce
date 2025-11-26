@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Account from "../components/Account";
 import Address from "../components/Address";
 import RecentOrders from "../components/RecentOrders";
+import Link from "next/link";
 
 const UserProfile = () => {
     const [activeTab, setActiveTab] = useState("Account Details");
@@ -86,10 +87,10 @@ const UserProfile = () => {
                                         </p>
                                     </button>
                                 ))}
-                                <button className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-primary-light hover:bg-gray-100 transition-colors mt-2 border-t border-border-light pt-4">
+                                <Link href={'/auth/login'} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-primary-light hover:bg-gray-100 transition-colors mt-2 border-t border-border-light pt-4">
                                     <span className="material-symbols-outlined">logout</span>
                                     <p className="text-sm font-medium leading-normal">Logout</p>
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -154,10 +155,10 @@ const UserProfile = () => {
                                 </div>
 
                                 <div className="flex flex-col gap-1 mt-8 border-t border-border-light pt-4">
-                                    <button className="flex cursor-pointer items-center gap-3 px-3 py-2.5 rounded-lg text-text-primary-light hover:bg-gray-100 transition-colors">
+                                    <Link href={'/auth/login'} className="flex cursor-pointer items-center gap-3 px-3 py-2.5 rounded-lg text-text-primary-light hover:bg-gray-100 transition-colors">
                                         <span className="material-symbols-outlined">logout</span>
                                         <p className="text-sm font-medium leading-normal">Logout</p>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

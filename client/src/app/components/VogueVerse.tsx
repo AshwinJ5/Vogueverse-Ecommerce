@@ -66,7 +66,7 @@ export const VogueVerse = () => {
                                     alteration.
                                 </p>
                                 <p className="mt-4 text-lg font-bold text-black">
-                                    from <span className="text-secondary">$195.00</span>
+                                    from <span className="text-secondary">₹ 195.00</span>
                                 </p>
                                 <Link href={"/products"}>
                                     <button className="mt-6 mx-auto md:mx-0 flex items-center justify-center rounded-md h-12 px-8 bg-primary text-white text-sm font-bold hover:bg-opacity-90 transition-all uppercase hover:scale-102 cursor-pointer">
@@ -193,7 +193,7 @@ export const VogueVerse = () => {
                                 />
                                 <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                                 <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                                    <h3 className="font-bold text-xl md:text-2xl text-white">{item.name}</h3>
+                                    <h3 className={`font-bold text-xl md:text-2xl text-white group-hover:${index % 2 === 0 ? 'text-primary' : 'text-secondary'}`}>{item.name}</h3>
                                 </div>
                             </Link>
                         ))}
