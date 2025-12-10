@@ -13,4 +13,7 @@ export class CreateUserDto {
 
   @IsOptional()
   googleId?: string;
+
+  @IsOptional()
+  phone?: string;
 }

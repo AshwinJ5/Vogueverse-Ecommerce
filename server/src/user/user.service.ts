@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto'; // Import UpdateUserDto
+import { UpdateUserDto } from './dto/update-user.dto';
 import bcrypt from 'bcryptjs';
 
 @Injectable()
@@ -33,14 +33,14 @@ export class UserService {
         email: data.email,
         password: hashedPassword,
         googleId: data.googleId || null,
-        phone: data.phone || null, // Add phone
+        phone: data.phone || null,
       },
       select: {
         id: true,
         name: true,
         email: true,
         googleId: true,
-        phone: true, // Add phone to selection
+        phone: true,
         createdAt: true,
       },
     });
@@ -48,7 +48,7 @@ export class UserService {
 
   async findAll() {
     return this.prisma.user.findMany({
-      where: { isDeleted: false, status: 'ACTIVE' }, // Filter active users
+      where: { isDeleted: false, status: 'ACTIVE' },
       select: {
         id: true,
         name: true,
@@ -70,6 +70,7 @@ export class UserService {
         email: true,
         googleId: true,
         phone: true,
+        isDeleted: true,
         createdAt: true,
       },
     });
@@ -82,7 +83,7 @@ export class UserService {
   }
 
   async update(id: string, data: UpdateUserDto) {
-    await this.findById(id); // Ensure user exists
+    await this.findById(id);
 
     if (data.password) {
       data.password = await bcrypt.hash(data.password, 10);
@@ -105,7 +106,7 @@ export class UserService {
   }
 
   async remove(id: string) {
-    await this.findById(id); // Ensure user exists
+    await this.findById(id);
 
     return this.prisma.user.update({
       where: { id },
