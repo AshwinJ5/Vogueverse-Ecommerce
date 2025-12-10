@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto'; // Import UpdateUserDto
 import bcrypt from 'bcryptjs';
 
 @Injectable()
@@ -32,12 +33,14 @@ export class UserService {
         email: data.email,
         password: hashedPassword,
         googleId: data.googleId || null,
+        phone: data.phone || null, // Add phone
       },
       select: {
         id: true,
         name: true,
         email: true,
         googleId: true,
+        phone: true, // Add phone to selection
         createdAt: true,
       },
     });
@@ -45,13 +48,16 @@ export class UserService {
 
   async findAll() {
     return this.prisma.user.findMany({
+      where: { isDeleted: false, status: 'ACTIVE' }, // Filter active users
       select: {
         id: true,
         name: true,
         email: true,
         googleId: true,
+        phone: true,
         createdAt: true,
       },
+      orderBy: { createdAt: 'desc' },
     });
   }
 
@@ -63,14 +69,50 @@ export class UserService {
         name: true,
         email: true,
         googleId: true,
+        phone: true,
         createdAt: true,
       },
     });
 
-    if (!user) {
+    if (!user || user.isDeleted) {
       throw new NotFoundException('User not found');
     }
 
     return user;
+  }
+
+  async update(id: string, data: UpdateUserDto) {
+    await this.findById(id); // Ensure user exists
+
+    if (data.password) {
+      data.password = await bcrypt.hash(data.password, 10);
+    }
+
+    return this.prisma.user.update({
+      where: { id },
+      data: {
+        ...data,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        googleId: true,
+        phone: true,
+        updatedAt: true,
+      },
+    });
+  }
+
+  async remove(id: string) {
+    await this.findById(id); // Ensure user exists
+
+    return this.prisma.user.update({
+      where: { id },
+      data: {
+        isDeleted: true,
+        status: 'INACTIVE',
+      },
+    });
   }
 }
